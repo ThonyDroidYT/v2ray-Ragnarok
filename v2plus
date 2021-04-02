@@ -27,11 +27,12 @@ COLOR=$1
 echo -e "${COLOR}$(source trans -b es:${id} "${@:2}")\033[0m"
 }
 #trans
-trans () {
+fun_trans () {
+TEXT=$1
 [[ -e "/etc/newadm/idioma" ]] && ide=$(cat /etc/newadm/idioma) || ide=es
-ini=$(source trans -b es:${ide} "
-fin='")'
+retorno=$(source trans -b es:${ide} "$TEXT")
 }
+
 #color 2
 color2 () {
 COLOR=$1
