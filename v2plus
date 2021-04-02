@@ -4,27 +4,64 @@
 
 clear
 
-echo -----------------------------
-echo ---ADMINISTRADOR DE V2RAY----
-echo ---CREADO POR @RAGNAROKVPS---
-echo -----------------------------
-echo 1- Crear un nuevo acceso
-echo 2- Modificar el Host
-echo 3- Ver Configuracion Actual
-echo 4- Detener Servicio V2ray
-echo 5- Iniciar Servicio V2ray
-echo 6- Eliminar ID
-echo 7- Agregar ID especifico
-echo 8- Cambiar Puerto
-echo 9- Comprobar Estado de V2ray
-echo 10- Arreglar ID
-echo 11- Reiniciar V2Ray
-echo 0- Salir
-echo -----------------------------
-echo EN CASO DE EQUIVOCARSE, SALIR DEL SCRIPT CON CTRL + c 
-echo -----------------------------
+#barra
+barra () {
+cd /etc/newadm && bash menu --barra
+}
+
+v2file="/etc/v2ray/config.json"
+
+#colors
+red="\033[1;31m"
+blue="\033[1;34m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+white="\033[0m"
+cyan="\033[1;36m"
+azul="\033[44m"
+
+#color
+color () {
+[[ -e "/etc/newadm/idioma" ]] && id=$(cat /etc/newadm/idioma) || id=es
+COLOR=$1
+echo -e "${COLOR}$(source trans -b es:${id} "${@:2}")\033[0m"
+}
+#trans
+trans () {
+[[ -e "/etc/newadm/idioma" ]] && ide=$(cat /etc/newadm/idioma) || ide=es
+ini=$(source trans -b es:${ide} "
+fin=")
+}
+#color 2
+color2 () {
+COLOR=$1
+echo -e "\033[${COLOR}${@:2}\033[0m"
+}
+
+menu () {
+barra
+echo -e "${yellow} ${ini}ADMINISTRADOR V2RAY${fin} ${green}[NEW-ADM+] ${white}"
+barra
+echo -e "${green}[1] ${red}> ${cyan}${ini}Crear un nuevo acceso${white}"
+echo -e "${green}[2] ${red}> ${cyan}${ini}Modificar el Host$${fin}{white}"
+echo -e "${green}[3] ${red}> ${cyan}${ini}Ver Configuracion Actual${fin}${white}"
+echo -e "${green}[4] ${red}> ${cyan}${ini}Detener Servicio V2ray${fin}${white}"
+echo -e "${green}[5] ${red}> ${cyan}${ini}Iniciar Servicio V2ray${fin}${white}"
+echo -e "${green}[6] ${red}> ${red}> ${cyan}${ini}Eliminar ID${fin}${white}"
+echo -e "${green}[7] ${red}> ${cyan}${ini}Agregar ID especifico${fin}${white}"
+echo -e "${green}[8] ${red}> ${cyan}${ini}Cambiar Puerto${fin}${white}"
+echo -e "${green}[9] ${red}> ${cyan}${ini}Comprobar Estado de V2ray${ini}${white}"
+echo -e "${green}[10] ${red}> ${cyan}${ini}Arreglar ID${fin}${white}"
+echo -e "${green}[11] ${red}> ${cyan}${ini}Reiniciar V2Ray${fin\${white}"
+echo -e "${green}[0] ${red}> ${cyan}${ini}Salir${fin}${white}"
+barra
+#echo EN CASO DE EQUIVOCARSE, SALIR DEL SCRIPT CON CTRL + c 
+#barra
 echo 
-read -p "Seleccionar una opción: " opcion
+#read -p "Seleccionar una opción: " opcion
+color ${white} "Seleccione una opción: 》" && read opcion
+}
+menu
 
 if [ $opcion = 1 ]; then
     cd
@@ -54,11 +91,11 @@ if [ $opcion = 2 ]; then
     cd
     echo Tu Host actual es:
     echo
-    sed '/host/!d' v2ray/config.json
+    sed '/host/!d' ${v2file}
     read -p "INTRODUCE EL HOST ACTUAL: " hostact
-    sed -i "s/$hostact/acaelhost/g" v2ray/config.json
+    sed -i "s/$hostact/acaelhost/g" ${v2file}
     read -p "INTRODUCE EL NUEVO HOST: " newhost
-    sed -i "s/acaelhost/$newhost/g" v2ray/config.json
+    sed -i "s/acaelhost/$newhost/g" ${v2file}
     clear
     echo ---------------------------
     echo HOST CAMBIADO CORRECTAMENTE
@@ -73,11 +110,11 @@ fi
 
 if [ $opcion = 3 ]; then
     cd
-    sed '/id/!d' v2ray/config.json
-    sed '/host/!d' v2ray/config.json
-    sed '/port/!d' v2ray/config.json
-    sed '/patch/!d' v2ray/config.json
-    sed '/protocol/!d' v2ray/config.json
+    sed '/id/!d' ${v2file}
+    sed '/host/!d' ${v2file}
+    sed '/port/!d' ${v2file}
+    sed '/patch/!d' ${v2file}
+    sed '/protocol/!d' ${v2file}
     echo
     read -p "PRESIONA UNA TECLA PARA CONTINUAR..." t
     sh v2m.sh
@@ -112,7 +149,7 @@ if [ $opcion = 6 ]; then
     echo A CONTINUACION TENDRAS UNA LISTA CON LOS ID EXISTENTES
     sleep 5
     cd
-    sed '/id/!d' v2ray/config.json
+    sed '/id/!d' ${v2file}
     read -p "INTRODUZCA EL ID QUE DESEA ELIMINAR: " iddel
     cd v2ray/
     sed -i "/$iddel/d" ./config.json
@@ -176,10 +213,10 @@ fi
 
 if [ $opcion = 10 ]; then
     cd
-    sed '/id/!d' v2ray/config.json
+    sed '/id/!d' ${v2file}
     echo
     read -p "INTRODUZCA EL ULTIMO DE LA LISTA (SI APARECEN VARIOS) O EL UNICO ALTERID: " rid
-    sed -i "s/$rid, \"level\":1 },/$rid, \"level\":1 }/g" v2ray/config.json
+    sed -i "s/$rid, \"level\":1 },/$rid, \"level\":1 }/g" ${v2file}
     cd
     sh v2m.sh
 fi
