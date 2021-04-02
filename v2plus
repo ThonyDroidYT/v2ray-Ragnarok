@@ -53,7 +53,7 @@ echo -e "${green}[7] ${red}> ${cyan}Agregar ID especifico${white}"
 echo -e "${green}[8] ${red}> ${cyan}Cambiar Puerto${white}"
 echo -e "${green}[9] ${red}> ${cyan}Comprobar Estado de V2ray${white}"
 echo -e "${green}[10] ${red}> ${cyan}Arreglar ID${white}"
-echo -e "${green}[11] ${red}> ${cyan}Reiniciar V2Ray${fin\${white}"
+echo -e "${green}[11] ${red}> ${cyan}Reiniciar V2Ray${white}"
 echo -e "${green}[0] ${red}> ${cyan}Salir${white}"
 barra
 #echo EN CASO DE EQUIVOCARSE, SALIR DEL SCRIPT CON CTRL + c 
