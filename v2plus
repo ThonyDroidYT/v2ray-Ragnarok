@@ -40,20 +40,20 @@ echo -e "\033[${COLOR}${@:2}\033[0m"
 
 menu () {
 barra
-echo -e "${yellow} ${ini}ADMINISTRADOR V2RAY${fin} ${green}[NEW-ADM+] ${white}"
+echo -e "${yellow} ADMINISTRADOR V2RAY ${green}[NEW-ADM+] ${white}"
 barra
-echo -e "${green}[1] ${red}> ${cyan}${ini}Crear un nuevo acceso${white}"
-echo -e "${green}[2] ${red}> ${cyan}${ini}Modificar el Host$${fin}{white}"
-echo -e "${green}[3] ${red}> ${cyan}${ini}Ver Configuracion Actual${fin}${white}"
-echo -e "${green}[4] ${red}> ${cyan}${ini}Detener Servicio V2ray${fin}${white}"
-echo -e "${green}[5] ${red}> ${cyan}${ini}Iniciar Servicio V2ray${fin}${white}"
-echo -e "${green}[6] ${red}> ${red}> ${cyan}${ini}Eliminar ID${fin}${white}"
-echo -e "${green}[7] ${red}> ${cyan}${ini}Agregar ID especifico${fin}${white}"
-echo -e "${green}[8] ${red}> ${cyan}${ini}Cambiar Puerto${fin}${white}"
-echo -e "${green}[9] ${red}> ${cyan}${ini}Comprobar Estado de V2ray${ini}${white}"
-echo -e "${green}[10] ${red}> ${cyan}${ini}Arreglar ID${fin}${white}"
-echo -e "${green}[11] ${red}> ${cyan}${ini}Reiniciar V2Ray${fin\${white}"
-echo -e "${green}[0] ${red}> ${cyan}${ini}Salir${fin}${white}"
+echo -e "${green}[1] ${red}> ${cyan}Crear un nuevo acceso${white}"
+echo -e "${green}[2] ${red}> ${cyan}Modificar el Host${white}"
+echo -e "${green}[3] ${red}> ${cyan}Ver Configuracion Actual${white}"
+echo -e "${green}[4] ${red}> ${cyan}Detener Servicio V2ray${white}"
+echo -e "${green}[5] ${red}> ${cyan}Iniciar Servicio V2ray${white}"
+echo -e "${green}[6] ${red}> ${red}> ${cyan}Eliminar ID${white}"
+echo -e "${green}[7] ${red}> ${cyan}Agregar ID especifico${white}"
+echo -e "${green}[8] ${red}> ${cyan}Cambiar Puerto${white}"
+echo -e "${green}[9] ${red}> ${cyan}Comprobar Estado de V2ray${white}"
+echo -e "${green}[10] ${red}> ${cyan}Arreglar ID${white}"
+echo -e "${green}[11] ${red}> ${cyan}Reiniciar V2Ray${fin\${white}"
+echo -e "${green}[0] ${red}> ${cyan}Salir${white}"
 barra
 #echo EN CASO DE EQUIVOCARSE, SALIR DEL SCRIPT CON CTRL + c 
 #barra
