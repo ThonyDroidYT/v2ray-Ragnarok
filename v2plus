@@ -29,8 +29,8 @@ echo -e "${COLOR}$(source trans -b es:${id} "${@:2}")\033[0m"
 #trans
 trans () {
 [[ -e "/etc/newadm/idioma" ]] && ide=$(cat /etc/newadm/idioma) || ide=es
-ini=$(source trans -b es:${ide} "
-fin=")
+ini='$(source trans -b es:${ide} "'
+fin='")'
 }
 #color 2
 color2 () {
